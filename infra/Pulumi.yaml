@@ -1,0 +1,4 @@
+name: ddos-bil-infra
+runtime:
+  name: python
+description: Azure infrastructure for the controlled load-test PoC.

@@ -1,0 +1,16 @@
+config:
+  azure-native:location: westeurope
+  ddos-bil-infra:projectName: ddos-bil
+  ddos-bil-infra:clientResourceGroupName: rg-ddos-bil-client-dev
+  ddos-bil-infra:attackerResourceGroupName: rg-ddos-bil-attacker-dev
+  ddos-bil-infra:logAnalyticsRetentionDays: 30
+  ddos-bil-infra:testClientCpu: 0.5
+  ddos-bil-infra:testClientMemory: 1Gi
+  ddos-bil-infra:reverseProxyCpu: 0.5
+  ddos-bil-infra:reverseProxyMemory: 1Gi
+  ddos-bil-infra:minReplicas: 1
+  ddos-bil-infra:maxReplicas: 3
+  ddos-bil-infra:enableDiagnosticSettings: false
+  ddos-bil-infra:attackerAdminUsername: azureuser
+  ddos-bil-infra:attackerVmSize: Standard_D2s_v5
+  ddos-bil-infra:attackerPublicIpCount: 8
