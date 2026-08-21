@@ -1,16 +1,36 @@
 config:
   azure-native:location: westeurope
-  ddos-bil-infra:projectName: ddos-bil
-  ddos-bil-infra:clientResourceGroupName: rg-ddos-bil-client-dev
-  ddos-bil-infra:attackerResourceGroupName: rg-ddos-bil-attacker-dev
-  ddos-bil-infra:logAnalyticsRetentionDays: 30
-  ddos-bil-infra:testClientCpu: 0.5
-  ddos-bil-infra:testClientMemory: 1Gi
-  ddos-bil-infra:reverseProxyCpu: 0.5
-  ddos-bil-infra:reverseProxyMemory: 1Gi
-  ddos-bil-infra:minReplicas: 1
-  ddos-bil-infra:maxReplicas: 3
-  ddos-bil-infra:enableDiagnosticSettings: false
-  ddos-bil-infra:attackerAdminUsername: azureuser
-  ddos-bil-infra:attackerVmSize: Standard_D2s_v5
-  ddos-bil-infra:attackerPublicIpCount: 8
+  dospoc-infra:projectName: dospoc
+  dospoc-infra:resourceGroupName: rg-dospoc-dev
+  dospoc-infra:logAnalyticsRetentionDays: 30
+  dospoc-infra:acrName: dospocacrdev
+  dospoc-infra:testClientImage: python:3.12-slim
+  dospoc-infra:testClientTargetPort: 8000
+  dospoc-infra:testClientCommand:
+    - python
+    - -m
+    - http.server
+    - "8000"
+  dospoc-infra:testClientEnableProbes: false
+  dospoc-infra:testClientHealthPath: /healthcheck
+  dospoc-infra:testClientCpu: 0.5
+  dospoc-infra:testClientMemory: 1Gi
+  dospoc-infra:reverseProxyImage: python:3.12-slim
+  dospoc-infra:reverseProxyTargetPort: 8080
+  dospoc-infra:reverseProxyCommand:
+    - python
+    - -m
+    - http.server
+    - "8080"
+  dospoc-infra:reverseProxyEnableProbes: false
+  dospoc-infra:reverseProxyHealthPath: /proxy_healthcheck
+  dospoc-infra:reverseProxyCpu: 0.5
+  dospoc-infra:reverseProxyMemory: 1Gi
+  dospoc-infra:minReplicas: 1
+  dospoc-infra:maxReplicas: 3
+  dospoc-infra:enableDiagnosticSettings: false
+  dospoc-infra:attackerAdminUsername: azureuser
+  dospoc-infra:attackerVmSize: Standard_D2s_v5
+  dospoc-infra:attackerPublicIpCount: 8
+  dospoc-infra:attackerAllowedSshCidr: <IP>/32
+  dospoc-infra:attackerSshPublicKey: <SSH_PUBLIC_KEY>
